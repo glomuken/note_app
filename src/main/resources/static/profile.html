@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        header{
+            background-color: #dc3545;
+            size: 100%;
+            padding-top: 3%;
+        }
+        .note {
+            border: 2px solid #dc3545;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .note:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .edit-button {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .edit-button:hover {
+            background-color: #c82333;
+        }
+        .edit-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f8d7da;
+            border: 1px solid #dc3545;
+            padding: 20px;
+            max-width: 80%;
+            z-index: 9999;
+        }
+
+        .form-control {
+            border-color: #dc3545;
+        }
+
+        .btn-primary {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-primary:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <a href="#" onclick="showCreateNoteForm()" style="padding-right:0%; color:black;padding-left:90%; font-size:large;"><strong>Create Note</strong></a>
+</header>
+<section style="padding-top: 3%;">
+    <h1>Profile</h1>
+    <div id="notes-container">
+
+    </div>
+</section>
+<div id="edit-form" class="edit-form" style="display: none;">
+    <form onsubmit="submitEditForm(event)">
+        <input type="hidden" id="note-id" name="note-id">
+        <div class="form-group">
+            <textarea id="edit-note" class="form-control" rows="5" placeholder="Edit your note"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="button" onclick="cancelEdit()" class="btn btn-secondary">Cancel</button>
+    </form>
+</div>
+<div id="create-note-form" class="edit-form" style="display: none;">
+    <form onsubmit="submitCreateNoteForm(event)">
+        <div class="form-group">
+            <textarea id="create-note" class="form-control" rows="5" placeholder="Create a new note"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Note</button>
+        <button type="button" onclick="cancelCreateNote()" class="btn btn-secondary">Cancel</button>
+    </form>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/profile.js"></script>
+</html>
