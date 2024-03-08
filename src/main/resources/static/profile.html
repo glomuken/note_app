@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <style>
         header{
             background-color: #dc3545;
             size: 100%;
@@ -70,8 +69,10 @@
     <div id="notes-container">
 
     </div>
-</section>
+    <button onclick="location.href='/login'" type="button" class="btn btn-primary" >
+        Logout</button></section>
 <div id="edit-form" class="edit-form" style="display: none;">
+    <button  onclick="deleteNote()" class="btn btn-primary" ><i class="fa fa-trash-o"></i></button>
     <form onsubmit="submitEditForm(event)">
         <input type="hidden" id="note-id" name="note-id">
         <div class="form-group">

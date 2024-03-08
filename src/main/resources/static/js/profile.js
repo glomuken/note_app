@@ -104,3 +104,20 @@ function submitCreateNoteForm(event) {
     .catch(error => console.error('Error creating note:', error));
 }
 
+function deleteNote() {
+    var noteId = document.getElementById('note-id').value;
+    fetch('/api/notes/' + noteId, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            var email = new URLSearchParams(window.location.search).get('username');
+            window.location.href = '/profile/' + email;
+        } else {
+            console.error('Error deleting note:', response.statusText);
+        }
+    })
+    .catch(error => console.error('Error deleting note:', error));
+}
+
+

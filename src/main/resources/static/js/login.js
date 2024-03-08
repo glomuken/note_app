@@ -13,12 +13,10 @@ function submitLoginForm() {
             window.location.href = redirectUrl;
         } else {
             console.error('Request failed. Status:', xhr.status);
-            // Handle error response
         }
     };
     xhr.onerror = function() {
         console.error('Request failed. Network error.');
-        // Handle network error
     };
     xhr.send(data);
 }

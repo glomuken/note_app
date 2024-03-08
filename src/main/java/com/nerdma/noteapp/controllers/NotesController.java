@@ -1,10 +1,11 @@
-package com.nerdma.noteapp.Controllers;
+package com.nerdma.noteapp.controllers;
 
-import com.nerdma.noteapp.Models.NotesModel;
-import com.nerdma.noteapp.Models.UserModel;
-import com.nerdma.noteapp.Repositories.NotesRepository;
-import com.nerdma.noteapp.Repositories.UserRepository;
+import com.nerdma.noteapp.models.NotesModel;
+import com.nerdma.noteapp.models.UserModel;
+import com.nerdma.noteapp.repositories.NotesRepository;
+import com.nerdma.noteapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -72,5 +73,14 @@ public class NotesController {
         return ResponseEntity.ok().body(savedNote);
     }
 
+    @DeleteMapping("/api/notes/{id}")
+    public ResponseEntity<String> deleteNote(@PathVariable Long id) {
+        try {
+            notesRepository.deleteById(id);
+            return ResponseEntity.ok().body("Note deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting note: " + e.getMessage());
+        }
+    }
 
 }

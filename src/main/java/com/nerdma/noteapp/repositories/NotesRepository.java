@@ -1,7 +1,7 @@
-package com.nerdma.noteapp.Repositories;
+package com.nerdma.noteapp.repositories;
 
-import com.nerdma.noteapp.Models.NotesModel;
-import com.nerdma.noteapp.Models.UserModel;
+import com.nerdma.noteapp.models.NotesModel;
+import com.nerdma.noteapp.models.UserModel;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.RestController;

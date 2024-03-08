@@ -1,9 +1,7 @@
-package com.nerdma.noteapp.Models;
+package com.nerdma.noteapp.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.List;
 
 
 @Table(name = "users")

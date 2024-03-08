@@ -1,9 +1,9 @@
-package com.nerdma.noteapp.Controllers;
+package com.nerdma.noteapp.controllers;
 
 import com.nerdma.noteapp.LoginRequest;
 import com.nerdma.noteapp.NewUser;
-import com.nerdma.noteapp.Models.UserModel;
-import com.nerdma.noteapp.Repositories.UserRepository;
+import com.nerdma.noteapp.models.UserModel;
+import com.nerdma.noteapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,13 +13,12 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 public class UserController {
     private final UserRepository userRepository;
-    @Autowired
-    private final LoginRequest loginRequest;
+
+
 
     @Autowired
     public UserController(UserRepository _userRepository, LoginRequest loginRequest){
         this.userRepository = _userRepository;
-        this.loginRequest = loginRequest;
     }
 
 
@@ -68,6 +67,4 @@ public class UserController {
 
         return ResponseEntity.ok().body("{\"message\": \"User registered successfully.\"}");
     }
-
-
 }
